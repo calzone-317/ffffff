@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>픽셀 가디언즈 - 타워 디펜스</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="game-shell">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">MINI STRATEGY GAME</p>
+        <h1>🛡️ 픽셀 가디언즈</h1>
+        <p class="subtitle">적들이 성에 도달하기 전에 타워를 배치하세요!</p>
+      </div>
+      <div class="stats">
+        <div class="stat"><span>💰 골드</span><strong id="gold">180</strong></div>
+        <div class="stat"><span>❤️ 성 체력</span><strong id="lives">20</strong></div>
+        <div class="stat"><span>🌊 웨이브</span><strong id="wave">0</strong></div>
+      </div>
+    </header>
+
+    <section class="layout">
+      <div class="board-card">
+        <div class="board-heading">
+          <div><h2>전장</h2><p>빈 타일을 클릭해 타워를 설치하세요.</p></div>
+          <span id="status" class="status-pill">준비 완료</span>
+        </div>
+        <div class="canvas-wrap"><canvas id="game" width="800" height="500" aria-label="타워 디펜스 게임 전장"></canvas></div>
+        <div class="legend">
+          <span><i class="legend-road"></i> 적 이동 경로</span>
+          <span><i class="legend-enemy"></i> 적</span>
+          <span><i class="legend-range"></i> 사거리</span>
+        </div>
+      </div>
+
+      <aside class="side-panel">
+        <section class="panel-section">
+          <h2>타워 선택</h2>
+          <button class="tower-option selected" data-tower="archer">
+            <span class="tower-icon archer-icon">🏹</span><span class="tower-info"><b>궁수 타워</b><small>빠른 공격 · 사거리 보통</small></span><strong>💰 60</strong>
+          </button>
+          <button class="tower-option" data-tower="cannon">
+            <span class="tower-icon cannon-icon">💣</span><span class="tower-info"><b>대포 타워</b><small>강한 공격 · 공격 속도 느림</small></span><strong>💰 90</strong>
+          </button>
+          <p class="hint">타워를 선택한 뒤 전장의 빈 타일을 클릭하세요. 길 위에는 설치할 수 없습니다.</p>
+        </section>
+
+        <section class="panel-section">
+          <h2>전투 관리</h2>
+          <button id="startWave" class="primary-btn">▶ 웨이브 시작</button>
+          <button id="pauseBtn" class="secondary-btn">Ⅱ 일시정지</button>
+          <button id="restartBtn" class="secondary-btn">↻ 새 게임</button>
+          <div class="upgrade-box">
+            <b>타워 업그레이드</b>
+            <p id="upgradeText">전장에 설치한 타워를 클릭하면 업그레이드할 수 있어요.</p>
+            <button id="upgradeBtn" class="upgrade-btn" disabled>⬆ 업그레이드 (💰 50)</button>
+          </div>
+        </section>
+        <section class="panel-section tips">
+          <h2>게임 팁</h2>
+          <ul>
+            <li>적은 길을 따라 왼쪽에서 오른쪽으로 이동합니다.</li>
+            <li>적을 처치하면 골드를 얻습니다.</li>
+            <li>타워를 클릭해 선택한 뒤 업그레이드할 수 있습니다.</li>
+            <li>성 체력이 0이 되면 게임 오버입니다.</li>
+          </ul>
+        </section>
+      </aside>
+    </section>
+    <footer>PIXEL GUARDIANS <span>·</span> HTML / CSS / JavaScript 미니 프로젝트</footer>
+  </main>
+  <div id="toast" class="toast" role="status"></div>
+  <script src="script.js"></script>
+</body>
+</html>
